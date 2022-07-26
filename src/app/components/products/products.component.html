@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+  <div class="row">
+      <div class="col-md-4 mt-5">
+          <div class="card border-0 shadow p-3">
+              <div class="form-floating mb-3 tetx-center">
+                  <h5 class="text-center text-dark">Add Products</h5>
+              </div>
+                  <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="prdObj.name">
+                      <label for="firstname">name</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="prdObj.price">
+                      <label for="lastName">Price</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prdObj.catid">
+                      <label for="email">Category Id</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="prdObj.quantity">
+                      <label for="mobile">Quantity</label>
+                  </div>
+                  <button type="button" class="btn btn-outline-dark" (click)="addProduct()">Add Product</button>
+
+          </div>
+      </div>
+      <div class="col-md-8 mt-2">
+          <h5 class="text-danger"> Products List</h5>
+          <div class="card p-3 shadow">
+              <div class="card-body">
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">name</th>
+                          <th scope="col">price</th>
+                          <th scope="col">Category Id</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Delete</th>
+                          <th scope="col">Update</th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let prd of product">
+                          <td >{{prd.name}}</td>
+                          <td>{{prd.price}}</td>
+                          <td>{{prd.catid}}</td>
+                          <td>{{prd.quantity}}</td>
+                          <td>
+                              <button class="btn btn-outline-danger m-2 "(click)=" deleteProduct(prd)">Delete</button>
+                          </td>
+                          <td>
+                            <button class="btn btn-outline-info m-2"(click)=" update(prd)">Update</button>
+                            <button type="button" class="btn btn-outline-success" (click)="updateproduct(prd)">save</button>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
